@@ -1,0 +1,276 @@
+#! SiteMinder Version 12.0
+# Export Flags: Clear Text.
+objectclass: Domain
+Oid: 03-00015cc8-58fe-1175-993c-f4320aa04027
+Name: TESTAPP-MON
+Desc: Test App Domain
+Realms: 06-0002ac7e-5d35-1175-993c-f4320aa04027, 06-0002e224-61d6-1227-9bc1-f4320aa040a7, 06-000eff1d-641a-1227-9bc1-f4320aa040a7, 06-00063bb3-597b-1175-993c-f4320aa04027
+UserDirectories: 0e-000cedc9-a0fc-1e00-ae0a-f4320aa04095
+Rules: 0b-000e12ed-61d9-1227-9bc1-f4320aa040a7, 0b-0003546f-597e-1175-993c-f4320aa04027, 0b-000369fd-641d-1227-9bc1-f4320aa040a7
+RuleGroups: 0c-0001085a-5d7f-1175-993c-f4320aa04027, 0c-00018e28-5d68-1175-993c-f4320aa04027, 0c-000568cf-5d93-1175-993c-f4320aa04027
+Responses: 
+ResponseGroups: 
+Policies: 04-00068114-5ecc-1175-993c-f4320aa04027, 04-000ae221-5f4a-1175-993c-f4320aa04027, 04-0006c2cb-5e76-1175-993c-f4320aa04027
+Admins: 
+Variables: 
+ActiveExprs: 
+IsAffiliate: false
+IMSEnvs: 
+Mode: 2
+
+objectclass: Realm
+Oid: 06-0002ac7e-5d35-1175-993c-f4320aa04027
+DomainOid: 03-00015cc8-58fe-1175-993c-f4320aa04027
+Name: TESTAPP-MON-RLM-Logout Unprotected
+Desc: 
+ResourceFilter: /test-app/logout
+Agent: 02-000ef010-f0ba-1e00-ae0a-f4320aa04095
+AgentType: 10-8d78bb96-ae15-11d1-9cdd-006008aac24b
+Scheme: 0d-4afc0e42-ae25-11d1-9cdd-006008aac24b
+ProcessAuthEvents: true
+ProcessAzEvents: true
+ProtectAll: false
+SelfRegOid: 00-
+AzUserDirOid: 00-
+MaxTimeout: 7200
+IdleTimeout: 3600
+ParentRealmOid: 03-00015cc8-58fe-1175-993c-f4320aa04027
+SyncAudit: false
+Type: 0
+SessionType: 0
+SessionDrift: -1
+
+objectclass: Realm
+Oid: 06-0002e224-61d6-1227-9bc1-f4320aa040a7
+DomainOid: 03-00015cc8-58fe-1175-993c-f4320aa04027
+Name: TESTAPP-MON-RLM-Main Secure
+Desc: /test-app/main/secure/*
+ResourceFilter: /test-app/main/secure
+Agent: 02-000ef010-f0ba-1e00-ae0a-f4320aa04095
+AgentType: 10-8d78bb96-ae15-11d1-9cdd-006008aac24b
+Scheme: 0d-4afc0e42-ae25-11d1-9cdd-006008aac24b
+ProcessAuthEvents: true
+ProcessAzEvents: true
+ProtectAll: true
+SelfRegOid: 00-
+AzUserDirOid: 00-
+MaxTimeout: 7200
+IdleTimeout: 3600
+ParentRealmOid: 03-00015cc8-58fe-1175-993c-f4320aa04027
+SyncAudit: false
+Type: 0
+SessionType: 0
+SessionDrift: -1
+
+objectclass: Rule
+Oid: 0b-000e12ed-61d9-1227-9bc1-f4320aa040a7
+DomainOid: 03-00015cc8-58fe-1175-993c-f4320aa04027
+Name: TESTAPP-MON-RUL-Main Secure
+Desc: 
+Realm: 06-0002e224-61d6-1227-9bc1-f4320aa040a7
+AgentType: 10-8d78bb96-ae15-11d1-9cdd-006008aac24b
+Action: Get,Post
+Resource: /*
+Time: 00000000-00000000-7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f
+AllowAccess: true
+RegularExpression: false
+IsEnabled: true
+ActiveExpr: 00-
+Variables: 
+
+objectclass: Realm
+Oid: 06-000eff1d-641a-1227-9bc1-f4320aa040a7
+DomainOid: 03-00015cc8-58fe-1175-993c-f4320aa04027
+Name: TESTAPP-MON-RLM-Partials Support
+Desc: /test-app/partials/support
+ResourceFilter: /test-app/partials/support
+Agent: 02-000ef010-f0ba-1e00-ae0a-f4320aa04095
+AgentType: 10-8d78bb96-ae15-11d1-9cdd-006008aac24b
+Scheme: 0d-4afc0e42-ae25-11d1-9cdd-006008aac24b
+ProcessAuthEvents: true
+ProcessAzEvents: true
+ProtectAll: true
+SelfRegOid: 00-
+AzUserDirOid: 00-
+MaxTimeout: 7200
+IdleTimeout: 3600
+ParentRealmOid: 03-00015cc8-58fe-1175-993c-f4320aa04027
+SyncAudit: false
+Type: 0
+SessionType: 0
+SessionDrift: -1
+
+objectclass: Rule
+Oid: 0b-000369fd-641d-1227-9bc1-f4320aa040a7
+DomainOid: 03-00015cc8-58fe-1175-993c-f4320aa04027
+Name: TESTAPP-MON-RUL-Partials GET Allow
+Desc: 
+Realm: 06-000eff1d-641a-1227-9bc1-f4320aa040a7
+AgentType: 10-8d78bb96-ae15-11d1-9cdd-006008aac24b
+Action: Get,Post
+Resource: /*
+Time: 00000000-00000000-7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f
+AllowAccess: true
+RegularExpression: false
+IsEnabled: true
+ActiveExpr: 00-
+Variables: 
+
+objectclass: Realm
+Oid: 06-00063bb3-597b-1175-993c-f4320aa04027
+DomainOid: 03-00015cc8-58fe-1175-993c-f4320aa04027
+Name: TESTAPP-MON-RLM-Top Level
+Desc: Top Level Realm - Protected /*
+ResourceFilter: /test-app/
+Agent: 02-000ef010-f0ba-1e00-ae0a-f4320aa04095
+AgentType: 10-8d78bb96-ae15-11d1-9cdd-006008aac24b
+Scheme: 0d-000623a7-90e5-1e36-91b1-f4320aa04095
+ProcessAuthEvents: true
+ProcessAzEvents: true
+ProtectAll: true
+SelfRegOid: 00-
+AzUserDirOid: 00-
+MaxTimeout: 7200
+IdleTimeout: 3600
+ParentRealmOid: 03-00015cc8-58fe-1175-993c-f4320aa04027
+SyncAudit: false
+Type: 0
+SessionType: 0
+SessionDrift: -1
+
+objectclass: Rule
+Oid: 0b-0003546f-597e-1175-993c-f4320aa04027
+DomainOid: 03-00015cc8-58fe-1175-993c-f4320aa04027
+Name: TESTAPP-MON-RUL-Main Secure Top Level GetPost Allow
+Desc: 
+Realm: 06-00063bb3-597b-1175-993c-f4320aa04027
+AgentType: 10-8d78bb96-ae15-11d1-9cdd-006008aac24b
+Action: DELETE,Get,HEAD,Post,Put
+Resource: *
+Time: 00000000-00000000-7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f
+AllowAccess: true
+RegularExpression: false
+IsEnabled: true
+ActiveExpr: 00-
+Variables: 
+
+objectclass: RuleGroup
+Oid: 0c-0001085a-5d7f-1175-993c-f4320aa04027
+DomainOid: 03-00015cc8-58fe-1175-993c-f4320aa04027
+Name: TESTAPP-MON-RULGRP-Admin Users
+Desc: TESTAPPADM Role
+AgentType: 10-8d78bb96-ae15-11d1-9cdd-006008aac24b
+Rules: 0b-0003546f-597e-1175-993c-f4320aa04027, 0b-000369fd-641d-1227-9bc1-f4320aa040a7, 0b-000e12ed-61d9-1227-9bc1-f4320aa040a7
+
+objectclass: RuleGroup
+Oid: 0c-00018e28-5d68-1175-993c-f4320aa04027
+DomainOid: 03-00015cc8-58fe-1175-993c-f4320aa04027
+Name: TESTAPP-MON-RULGRP-App Admin Users
+Desc: TESTAPPAPPADM ROle
+AgentType: 10-8d78bb96-ae15-11d1-9cdd-006008aac24b
+Rules: 0b-0003546f-597e-1175-993c-f4320aa04027
+
+objectclass: RuleGroup
+Oid: 0c-000568cf-5d93-1175-993c-f4320aa04027
+DomainOid: 03-00015cc8-58fe-1175-993c-f4320aa04027
+Name: TESTAPP-MON-RULGRP-Users
+Desc: TESTAPPUSR Role
+AgentType: 10-8d78bb96-ae15-11d1-9cdd-006008aac24b
+Rules: 0b-0003546f-597e-1175-993c-f4320aa04027
+
+objectclass: Policy
+Oid: 04-00068114-5ecc-1175-993c-f4320aa04027
+DomainOid: 03-00015cc8-58fe-1175-993c-f4320aa04027
+Name: TESTAPP-MON-POL-Admin Users
+Desc: TESTAPPMONADM
+Time: 00000000-00000000-7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f
+PolicyLinks: 05-0000116a-5ecd-1175-993c-f4320aa04027
+UserPolicies: 0f-000ba614-5ecc-1175-993c-f4320aa04027
+AllowAccess: true
+IsEnabled: true
+IPAddress: 
+Type: 0
+ActiveExpr: 00-
+UserActiveExpr: 00-
+
+objectclass: PolicyLink
+Oid: 05-0000116a-5ecd-1175-993c-f4320aa04027
+DomainOid: 03-00015cc8-58fe-1175-993c-f4320aa04027
+Rule: 0c-0001085a-5d7f-1175-993c-f4320aa04027
+Response: 
+Policy: 04-00068114-5ecc-1175-993c-f4320aa04027
+
+objectclass: UserPolicy
+Oid: 0f-000ba614-5ecc-1175-993c-f4320aa04027
+DomainOid: 03-00015cc8-58fe-1175-993c-f4320aa04027
+FilterPath: cn=TESTAPPADM,ou=Groups,dc=extsso,dc=railinc,dc=com
+FilterClass: groupOfNames
+PolicyResolution: 2
+PolicyFlags: 0
+UserDirectory: 0e-000cedc9-a0fc-1e00-ae0a-f4320aa04095
+Policy: 04-00068114-5ecc-1175-993c-f4320aa04027
+
+objectclass: Policy
+Oid: 04-000ae221-5f4a-1175-993c-f4320aa04027
+DomainOid: 03-00015cc8-58fe-1175-993c-f4320aa04027
+Name: TESTAPP-MON-POL-App Admin Users
+Desc: TESTAPPAPPADM Role
+Time: 00000000-00000000-7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f
+PolicyLinks: 05-00043a3e-5f4b-1175-993c-f4320aa04027
+UserPolicies: 0f-0000b75c-5f4b-1175-993c-f4320aa04027
+AllowAccess: true
+IsEnabled: true
+IPAddress: 
+Type: 0
+ActiveExpr: 00-
+UserActiveExpr: 00-
+
+objectclass: PolicyLink
+Oid: 05-00043a3e-5f4b-1175-993c-f4320aa04027
+DomainOid: 03-00015cc8-58fe-1175-993c-f4320aa04027
+Rule: 0c-00018e28-5d68-1175-993c-f4320aa04027
+Response: 
+Policy: 04-000ae221-5f4a-1175-993c-f4320aa04027
+
+objectclass: UserPolicy
+Oid: 0f-0000b75c-5f4b-1175-993c-f4320aa04027
+DomainOid: 03-00015cc8-58fe-1175-993c-f4320aa04027
+FilterPath: cn=TESTAPPAPPADM,ou=Groups,dc=extsso,dc=railinc,dc=com
+FilterClass: groupOfNames
+PolicyResolution: 2
+PolicyFlags: 0
+UserDirectory: 0e-000cedc9-a0fc-1e00-ae0a-f4320aa04095
+Policy: 04-000ae221-5f4a-1175-993c-f4320aa04027
+
+objectclass: Policy
+Oid: 04-0006c2cb-5e76-1175-993c-f4320aa04027
+DomainOid: 03-00015cc8-58fe-1175-993c-f4320aa04027
+Name: TESTAPP-MON-POL-USERS
+Desc: TESTAPPUSR Role
+Time: 00000000-00000000-7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f
+PolicyLinks: 05-00093368-5e77-1175-993c-f4320aa04027
+UserPolicies: 0f-0003530d-5e77-1175-993c-f4320aa04027
+AllowAccess: true
+IsEnabled: true
+IPAddress: 
+Type: 0
+ActiveExpr: 00-
+UserActiveExpr: 00-
+
+objectclass: PolicyLink
+Oid: 05-00093368-5e77-1175-993c-f4320aa04027
+DomainOid: 03-00015cc8-58fe-1175-993c-f4320aa04027
+Rule: 0c-000568cf-5d93-1175-993c-f4320aa04027
+Response: 
+Policy: 04-0006c2cb-5e76-1175-993c-f4320aa04027
+
+objectclass: UserPolicy
+Oid: 0f-0003530d-5e77-1175-993c-f4320aa04027
+DomainOid: 03-00015cc8-58fe-1175-993c-f4320aa04027
+FilterPath: cn=TESTAPPUSR,ou=Groups,dc=extsso,dc=railinc,dc=com
+FilterClass: groupOfNames
+PolicyResolution: 2
+PolicyFlags: 0
+UserDirectory: 0e-000cedc9-a0fc-1e00-ae0a-f4320aa04095
+Policy: 04-0006c2cb-5e76-1175-993c-f4320aa04027
+
